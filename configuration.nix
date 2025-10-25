@@ -1,12 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
@@ -15,7 +11,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  #Hostname
+  networking.hostName = "nixos";
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,9 +45,11 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
+
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  #services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,6 +90,8 @@
     packages = with pkgs; [
       kdePackages.kate
       git
+      alacritty
+      rofi
     #  thunderbird
     ];
   };
@@ -100,6 +102,11 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  #Install niri (WM)
+  programs.niri = {
+    enable = true;
+  };
 
   # Install steam
   programs.steam = {
