@@ -1,0 +1,9 @@
+output "Samsung Electric Company LF24T370F HNAR301359" {
+    position x=0 y=0
+    scale 1.0
+
+}
+output "PNP(AOC) 2460G5 F07FCBA001335" {
+    position x=1920 y=0
+    scale 1.0
+}
