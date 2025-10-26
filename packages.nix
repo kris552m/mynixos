@@ -7,6 +7,8 @@
         git
         alacritty
         spotify
-	eza
+        vscode
+        eza
+        fuzzel
     ];
 }

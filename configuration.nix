@@ -79,15 +79,33 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.krist = {
     isNormalUser = true;
     description = "Kristoffer Heby";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
-  # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "krist";
+
+  home-manager.users.krist = { pkgs, ... }: {
+    home = {
+      shellAliases = {
+        ls = "eza -l --header";
+      };
+
+      packages = [pkgs.atool pkgs.httpie];
+
+      stateVersion = "25.05";
+      };
+
+    programs.bash.enable = true;
+
+  };
+
+  # Enable automatic login for the user.
+
+
 
   # Install firefox.
   programs.firefox.enable = true;
