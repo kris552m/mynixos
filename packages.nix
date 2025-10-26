@@ -7,5 +7,6 @@
         git
         alacritty
         spotify
+	eza
     ];
 }
