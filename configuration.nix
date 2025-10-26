@@ -4,7 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./packages.nix
       <home-manager/nixos>
+
     ];
 
   # Bootloader.
@@ -44,10 +46,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
+  services.displayManager.sddm.wayland.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.wayland.enable = true;
+
   #services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = false;
 
@@ -87,13 +89,6 @@
     isNormalUser = true;
     description = "Kristoffer Heby";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      git
-      alacritty
-      rofi
-    #  thunderbird
-    ];
   };
 
   # Enable automatic login for the user.
@@ -116,16 +111,9 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  spotify
-  ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
