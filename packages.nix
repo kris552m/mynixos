@@ -10,5 +10,8 @@
         vscode
         eza
         fuzzel
+	xwayland-satellite
+	xdg-desktop-portal-gtk
+	xdg-desktop-portal-wlr
     ];
 }

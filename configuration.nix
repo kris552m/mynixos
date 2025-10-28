@@ -40,7 +40,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = false;
+
+  
 
   # Enable the KDE Plasma Desktop Environment.
 
@@ -106,7 +109,7 @@
   # Enable automatic login for the user.
 
 
-
+ # Programs
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -122,6 +125,19 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+
+  #Install xwayland
+  programs.xwayland.enable = true;
+
+
+# Portals
+  xdg.portal = {
+	enable = true;
+	extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
+  };
+
+
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
