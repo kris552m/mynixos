@@ -1,0 +1,20 @@
+prefer-no-csd
+xwayland-satellite {
+	path "xwayland-satellite"
+}
+
+cursor {
+
+	hide-when-typing
+	hide-after-inactive-ms 4000
+}
+
+clipboard {
+	disable-primary
+}
+
+hotkey-overlay {
+	skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
