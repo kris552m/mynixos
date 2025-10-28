@@ -3,9 +3,10 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./packages.nix
-      <home-manager/nixos>
+	./programs.nix
+      	./hardware-configuration.nix
+      	./packages.nix
+      	<home-manager/nixos>
 
     ];
 
@@ -40,8 +41,8 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = false;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = false;
 
   
 
@@ -106,28 +107,6 @@
 
   };
 
-  # Enable automatic login for the user.
-
-
- # Programs
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  #Install niri (WM)
-  programs.niri = {
-    enable = true;
-  };
-
-  # Install steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
-  #Install xwayland
-  programs.xwayland.enable = true;
 
 
 # Portals

@@ -13,5 +13,6 @@
 	xwayland-satellite
 	xdg-desktop-portal-gtk
 	xdg-desktop-portal-wlr
+	neovim
     ];
 }
