@@ -5,8 +5,8 @@
     [
 	./programs.nix
       	./hardware-configuration.nix
-      	./packages.nix
-      	<home-manager/nixos>
+      	./packages.nix 
+	<home-manager/nixos>
 
     ];
 
@@ -93,17 +93,19 @@
   services.displayManager.autoLogin.user = "krist";
 
   home-manager.users.krist = { pkgs, ... }: {
-    home = {
-      shellAliases = {
-        ls = "eza -l --header";
-      };
+    	home = {
+      		shellAliases = {
+        		"n" = "nvim";
+			ls = "eza -l --header";
+      		};
 
-      packages = [pkgs.atool pkgs.httpie];
-
-      stateVersion = "25.05";
-      };
+      		packages = [pkgs.atool pkgs.httpie];
+	
+	      	stateVersion = "25.05";
+      	};
 
     programs.bash.enable = true;
+    programs.home-manager.enable = true;
 
   };
 
@@ -118,8 +120,7 @@
 
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile. To search, run: $ nix search wget
 
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -20,5 +20,9 @@ programs = {
 	#XWayland
 	xwayland.enable = true;
 
+	#Waybar
+	waybar = {
+		enable = true;		
+	};
 };
 }
