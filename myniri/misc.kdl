@@ -4,7 +4,8 @@ xwayland-satellite {
 }
 
 cursor {
-
+	xcursor-theme "breeze_cursors"
+	xcursor-size 24
 	hide-when-typing
 	hide-after-inactive-ms 4000
 }
