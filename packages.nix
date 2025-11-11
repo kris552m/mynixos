@@ -3,7 +3,6 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-        kdePackages.kate
         git
         alacritty
         spotify
@@ -14,5 +13,6 @@
 	xdg-desktop-portal-gtk
 	xdg-desktop-portal-wlr
 	neovim
-    ];
+	libreoffice
+];
 }
